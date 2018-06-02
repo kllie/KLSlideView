@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "KLSlideView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "KLSlideView 支持顶部Tab页点击、滑动，并支持无限分页。"
 
   s.homepage     = "https://github.com/kllie"
@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.public_header_files = "KLSlideView/Classes/**/*.h"
-  s.source_files        = "KLSlideView/Classes/**/*.{h,m}"
+  s.public_header_files = "KLSlideView/Classes/*.h"
+  s.source_files        = "KLSlideView/Classes/*.{h,m}"
 
   s.subspec 'Tools' do |tools|
     tools.public_header_files   = 'KLSlideView/Classes/Tools/**/*.h'
