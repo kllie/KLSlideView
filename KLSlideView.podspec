@@ -19,18 +19,18 @@ Pod::Spec.new do |s|
 
   s.author       = { "zhaobinhua" => "zbh1019@163.com" }
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/kllie/KLSlideView.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/kllie/KLSlideView.git", :tag => s.version.to_s }
 
   s.requires_arc = true
 
   s.public_header_files = "KLSlideView/Classes/**/*.h"
-  s.source_files        = "KLSlideView/Classes/**/*"
+  s.source_files        = "KLSlideView/Classes/**/*.{h,m}"
 
   s.subspec 'Tools' do |tools|
     tools.public_header_files   = 'KLSlideView/Classes/Tools/**/*.h'
-    tools.source_files          = 'KLSlideView/Classes/Tools/**/*'
+    tools.source_files          = 'KLSlideView/Classes/Tools/**/*.{h,m}'
   end
 
 end
