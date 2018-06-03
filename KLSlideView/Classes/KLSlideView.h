@@ -59,6 +59,4 @@
  */
 @property (nonatomic, strong) id<KLCacheProtocol> cache;
 
-- (void)setup;
-
 @end

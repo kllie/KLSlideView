@@ -50,7 +50,7 @@
     self.slideView.delegate = self;
     self.slideView.tabbarBottomSpacing = 5;
     self.slideView.baseViewController = self;
-    [self.slideView setup];
+//    [self.slideView setup];
     self.slideView.selectedIndex = 0;
     [self.view addSubview:self.slideView];
 
@@ -61,6 +61,7 @@
 - (NSInteger)numberOfTabsInKLSlideView:(KLSlideView *)slideView {
     return self.itemArray.count;
 }
+
 - (UIViewController *)slideView:(KLSlideView *)slideView controllerIndex:(NSInteger)index {
     PageViewController *page = [[PageViewController alloc] init];
     page.view.backgroundColor = [UIColor colorWithRed:arc4random() %256/256.0 green:arc4random() %256/256.0 blue:arc4random() %256/256.0 alpha:1];
