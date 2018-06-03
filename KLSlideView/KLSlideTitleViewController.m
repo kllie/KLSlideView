@@ -13,6 +13,7 @@
 @interface KLSlideTitleViewController ()<KLSlideViewDelegate>
 
 @property (nonatomic, strong) KLSlideView *slideView;
+@property (nonatomic, strong) KLTitleTabbarView *tabbar;
 @property (nonatomic, strong) NSMutableArray *itemArray;
 @end
 
@@ -20,40 +21,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
-    self.itemArray = [NSMutableArray arrayWithCapacity:0];
-
-    self.slideView = [[KLSlideView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64)];
-    self.slideView.backgroundColor = [UIColor whiteColor];
-    KLCache *cache = [[KLCache alloc] initWithCount:1];
-    KLTitleTabbarView *tabbar = [[KLTitleTabbarView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-    tabbar.normalColor = [UIColor blackColor];
-    tabbar.selectedColor = [UIColor redColor];
-    tabbar.font = [UIFont systemFontOfSize:15];
-    tabbar.trackColor = [UIColor redColor];
-
-    CGFloat width = self.view.frame.size.width / 5;
-//    CGFloat width = 80;
-    [self.itemArray addObjectsFromArray:@[[KLTitleTabbarItem itemWithTitle:@"全部" width:width],
-                                          [KLTitleTabbarItem itemWithTitle:@"待分类" width:width],
-                                          [KLTitleTabbarItem itemWithTitle:@"已分类" width:width],
-                                          [KLTitleTabbarItem itemWithTitle:@"待分组" width:width],
-                                          [KLTitleTabbarItem itemWithTitle:@"已分组" width:width]]];
-
-    tabbar.tabbarItems = self.itemArray;
-
-    self.slideView.tabbar = tabbar;
-    self.slideView.cache = cache;
-    self.slideView.delegate = self;
-    self.slideView.tabbarBottomSpacing = 5;
-    self.slideView.baseViewController = self;
-    [self.slideView setup];
-    self.slideView.selectedIndex = 0;
+    
     [self.view addSubview:self.slideView];
+    [self.slideView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(64);
+        make.left.right.bottom.equalTo(self.view);
+    }];
 
     [self.slideView.tabbar tabbarViewBadgeDotWithIndex:2];
     [self.slideView.tabbar tabbarViewBadgeValue:2 index:2];
+}
+
+- (KLSlideView *)slideView {
+    if (!_slideView) {
+        _slideView = [[KLSlideView alloc] initWithFrame:CGRectZero];
+        _slideView.backgroundColor = [UIColor whiteColor];
+        _slideView.cache = [[KLCache alloc] initWithCount:self.itemArray.count];
+        _slideView.delegate = self;
+        _slideView.baseViewController = self;
+        _slideView.tabbarBottomSpacing = 5;
+        _slideView.selectedIndex = 0;
+        _slideView.tabbar = self.tabbar;
+    }
+    return _slideView;
+}
+
+- (KLTitleTabbarView *)tabbar {
+    if (!_tabbar) {
+        _tabbar = [[KLTitleTabbarView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+        _tabbar.normalColor = [UIColor blackColor];
+        _tabbar.selectedColor = [UIColor redColor];
+        _tabbar.font = [UIFont systemFontOfSize:14];
+        _tabbar.trackColor = [UIColor redColor];
+        _tabbar.tabbarItems = self.itemArray;
+    }
+    return _tabbar;
+}
+
+- (NSMutableArray *)itemArray {
+    if (!_itemArray) {
+        _itemArray = [NSMutableArray arrayWithCapacity:0];
+        NSArray *titleArray = @[@"全部", @"待分类", @"已分类", @"待分组", @"已分组"];
+        CGFloat width = self.view.frame.size.width / titleArray.count;
+        for (NSString *title in titleArray) {
+            [_itemArray addObject:[KLTitleTabbarItem itemWithTitle:title width:width]];
+        }
+    }
+    return _itemArray;
 }
 
 - (NSInteger)numberOfTabsInKLSlideView:(KLSlideView *)slideView {

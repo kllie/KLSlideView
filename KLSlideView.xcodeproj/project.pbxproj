@@ -22,9 +22,11 @@
 		916F390D20C2E5A400C989AC /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916F390920C2E5A300C989AC /* PageViewController.m */; };
 		916F390E20C2E5A400C989AC /* KLSlideTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916F390A20C2E5A300C989AC /* KLSlideTitleViewController.m */; };
 		916F390F20C2E5A400C989AC /* KLSlideImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 916F390B20C2E5A400C989AC /* KLSlideImageViewController.m */; };
+		B8AC2CC64B721391D0BBC64C /* libPods-KLSlideView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF3CCDB478D5147F0B838ADF /* libPods-KLSlideView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010F5454AF991917D533DC06 /* Pods-KLSlideView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KLSlideView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KLSlideView/Pods-KLSlideView.debug.xcconfig"; sourceTree = "<group>"; };
 		916F38CE20C2CC6000C989AC /* KLSlideView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KLSlideView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916F38D120C2CC6000C989AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		916F38D220C2CC6000C989AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,6 +57,9 @@
 		916F390A20C2E5A300C989AC /* KLSlideTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLSlideTitleViewController.m; sourceTree = "<group>"; };
 		916F390B20C2E5A400C989AC /* KLSlideImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLSlideImageViewController.m; sourceTree = "<group>"; };
 		916F390C20C2E5A400C989AC /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		916F391320C3842100C989AC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CF3CCDB478D5147F0B838ADF /* libPods-KLSlideView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KLSlideView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF824D720221C3102B012BC2 /* Pods-KLSlideView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KLSlideView.release.xcconfig"; path = "Pods/Target Support Files/Pods-KLSlideView/Pods-KLSlideView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,17 +67,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8AC2CC64B721391D0BBC64C /* libPods-KLSlideView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1817200885FABBB263BFCD54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				010F5454AF991917D533DC06 /* Pods-KLSlideView.debug.xcconfig */,
+				EF824D720221C3102B012BC2 /* Pods-KLSlideView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		916F38C520C2CC6000C989AC = {
 			isa = PBXGroup;
 			children = (
 				916F38D020C2CC6000C989AC /* KLSlideView */,
 				916F38CF20C2CC6000C989AC /* Products */,
+				1817200885FABBB263BFCD54 /* Pods */,
+				F9F98EC2A38931F33363059D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +120,7 @@
 				916F38DC20C2CC6100C989AC /* LaunchScreen.storyboard */,
 				916F38DF20C2CC6100C989AC /* Info.plist */,
 				916F38E020C2CC6100C989AC /* main.m */,
+				916F391320C3842100C989AC /* PrefixHeader.pch */,
 			);
 			path = KLSlideView;
 			sourceTree = "<group>";
@@ -136,6 +154,14 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		F9F98EC2A38931F33363059D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF3CCDB478D5147F0B838ADF /* libPods-KLSlideView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +169,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 916F38E420C2CC6100C989AC /* Build configuration list for PBXNativeTarget "KLSlideView" */;
 			buildPhases = (
+				D947E0713279B62EB3DFFCF1 /* [CP] Check Pods Manifest.lock */,
 				916F38CA20C2CC6000C989AC /* Sources */,
 				916F38CB20C2CC6000C989AC /* Frameworks */,
 				916F38CC20C2CC6000C989AC /* Resources */,
@@ -200,6 +227,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D947E0713279B62EB3DFFCF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KLSlideView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		916F38CA20C2CC6000C989AC /* Sources */ = {
@@ -355,10 +403,13 @@
 		};
 		916F38E520C2CC6100C989AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 010F5454AF991917D533DC06 /* Pods-KLSlideView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3CUBTCYS7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KLSlideView/PrefixHeader.pch";
 				INFOPLIST_FILE = KLSlideView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -373,10 +424,13 @@
 		};
 		916F38E620C2CC6100C989AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF824D720221C3102B012BC2 /* Pods-KLSlideView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3CUBTCYS7;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/KLSlideView/PrefixHeader.pch";
 				INFOPLIST_FILE = KLSlideView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

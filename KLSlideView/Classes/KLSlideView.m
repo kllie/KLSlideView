@@ -8,8 +8,6 @@
 
 #import "KLSlideView.h"
 
-#define kDefaultTabbarBottomSpacing 0
-
 @interface KLSlideView ()
 
 @property (nonatomic, strong) KLContainView *slideContainView;
@@ -38,29 +36,31 @@
     [self layoutSlideContainView];
 }
 
-- (void)layoutSlideContainView{
+- (void)layoutSlideContainView {
+    
+    for (UIView *subView in self.subviews) {
+        [subView removeFromSuperview];
+    }
+    
     self.tabbar.frame = CGRectMake(self.tabbar.frame.origin.x, self.tabbar.frame.origin.y, CGRectGetWidth(self.tabbar.bounds), self.tabbar.frame.size.height);
     self.slideContainView.frame = CGRectMake(self.bounds.origin.x, self.tabbar.frame.size.height + self.tabbarBottomSpacing, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - self.tabbar.frame.size.height - self.tabbarBottomSpacing);
+    self.tabbar.delegate = self;
+    [self addSubview:self.tabbar];
+    
+    self.slideContainView = [[KLContainView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.tabbar.frame.size.height + self.tabbarBottomSpacing, self.bounds.size.width, self.bounds.size.height - self.tabbar.frame.size.height - self.tabbarBottomSpacing)];
+    self.slideContainView.delegate = self;
+    self.slideContainView.dataSource = self;
+    self.slideContainView.baseViewController = self.baseViewController;
+    [self addSubview:self.slideContainView];
+    
+    self.selectedIndex = self.selectedIndex;
 }
 
 
 #pragma mark - init methods
 
 - (void)initView {
-    self.tabbarBottomSpacing = kDefaultTabbarBottomSpacing;
-}
-
-#pragma mark - public methods
-
-- (void)setup {
-    self.tabbar.delegate = self;
-    [self addSubview:self.tabbar];
-
-    self.slideContainView = [[KLContainView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.tabbar.frame.size.height + self.tabbarBottomSpacing, self.bounds.size.width, self.bounds.size.height - self.tabbar.frame.size.height - self.tabbarBottomSpacing)];
-    self.slideContainView.delegate = self;
-    self.slideContainView.dataSource = self;
-    self.slideContainView.baseViewController = self.baseViewController;
-    [self addSubview:self.slideContainView];
+    self.tabbarBottomSpacing = 0;
 }
 
 - (void)setBaseViewController:(UIViewController *)baseViewController {
