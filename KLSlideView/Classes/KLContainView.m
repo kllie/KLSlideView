@@ -41,14 +41,19 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (self.isPanGesture) {
+        self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
+        [self addGestureRecognizer:self.pan];
+    }
+}
+
 #pragma mark - init methods
 
 - (void)initView{
     self.oldIndex = -1;
     self.isSwitching = NO;
-
-    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
-    [self addGestureRecognizer:self.pan];
 }
 
 #pragma mark - event response

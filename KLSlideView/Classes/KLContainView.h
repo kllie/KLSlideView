@@ -28,6 +28,7 @@
 @interface KLContainView : UIView
 
 @property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, assign) BOOL isPanGesture;
 @property (nonatomic, weak) UIViewController *baseViewController;
 @property (nonatomic, weak) id<KLContainViewDelegate> delegate;
 @property (nonatomic, weak) id<KLContainViewDataSource> dataSource;

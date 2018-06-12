@@ -31,26 +31,32 @@
  The back ground view of the tabbar
  */
 @property(nonatomic, strong) UIView *backgroundView;
+
 /** 
  The normal color of the tabbar title, Default is [UIColor grayColor]
  */
 @property (nonatomic, strong) UIColor *normalColor;
+
 /**
  The selected color of the tabbar title, Default is [UIColor redColor]
  */
 @property (nonatomic, strong) UIColor *selectedColor;
+
 /**
  The font of the tabbar title, Default is [UIFont systemFontOfSize:14]
  */
 @property (nonatomic, strong) UIFont *font;
+
 /**
  The small slider color, Default is [UIColor redColor]
  */
 @property (nonatomic, strong) UIColor *trackColor;
+
 /**
  The small slider back ground image, Default is nil
  */
 @property (nonatomic, strong) NSString *trackImage;
+
 /**
  This array is a item array, and the element is KLTitleTabbarItem
  */

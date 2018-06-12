@@ -50,6 +50,7 @@
     self.slideView.delegate = self;
     self.slideView.tabbarBottomSpacing = 5;
     self.slideView.baseViewController = self;
+    self.slideView.isPanGesture = NO;
 //    [self.slideView setup];
     self.slideView.selectedIndex = 0;
     [self.view addSubview:self.slideView];
