@@ -51,15 +51,16 @@
     self.slideContainView.delegate = self;
     self.slideContainView.dataSource = self;
     self.slideContainView.baseViewController = self.baseViewController;
+    self.slideContainView.isPanGesture = self.isPanGesture;
     [self addSubview:self.slideContainView];
     
     self.selectedIndex = self.selectedIndex;
 }
 
-
 #pragma mark - init methods
 
 - (void)initView {
+    self.isPanGesture = YES;
     self.tabbarBottomSpacing = 0;
 }
 

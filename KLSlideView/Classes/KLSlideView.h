@@ -31,10 +31,12 @@
  KLSlideView base controller, Default is nil
  */
 @property (nonatomic, weak) UIViewController *baseViewController;
+
 /** 
  The selected index of KLSlideView, Default is 0
  */
 @property (nonatomic, assign) NSInteger selectedIndex;
+
 @property (nonatomic, weak) id<KLSlideViewDelegate> delegate;
 
 // ---------
@@ -45,10 +47,16 @@
  The tabbar of KLSlideView
  */
 @property (nonatomic, strong) UIView <KLTabbarViewProtocol> *tabbar;
+
 /**
  The specing between the bottom of tabbar and the top of KLContainView
  */
 @property (nonatomic, assign) CGFloat tabbarBottomSpacing;
+
+/**
+ Whether to add left and right Pan gestures, Default is YES.
+ */
+@property (nonatomic, assign) BOOL isPanGesture;
 
 // --------
 //  cache
