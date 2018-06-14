@@ -40,7 +40,6 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *trackView;
-@property (nonatomic, strong) UIView *lineView;
 
 @end
 
@@ -72,10 +71,6 @@
 
 - (void)initView {
     _selectedIndex = -1;
-    
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - DT(1), self.frame.size.width, DT(1))];
-    _lineView.backgroundColor = [UIColor clearColor];
-    [self addSubview:_lineView];
 
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -127,11 +122,6 @@
 - (void)setTrackBottomOffset:(CGFloat)trackBottomOffset {
     _trackBottomOffset = trackBottomOffset;
     _trackView.frame = CGRectMake(_trackView.frame.origin.x, self.bounds.size.height - _trackHeight - trackBottomOffset, _trackView.frame.size.width, _trackView.frame.size.height);
-}
-
-- (void)setLineColor:(UIColor *)lineColor {
-    _lineColor = lineColor;
-    _lineView.backgroundColor = lineColor;
 }
 
 - (void)setTrackImage:(NSString *)trackImage {

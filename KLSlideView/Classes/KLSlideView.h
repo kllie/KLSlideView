@@ -54,6 +54,11 @@
 @property (nonatomic, assign) CGFloat tabbarBottomSpacing;
 
 /**
+ The tabbar bottom line color, height is 2px, Default is [UIColor clearColor]
+ */
+@property (nonatomic, strong) UIColor *lineColor;
+
+/**
  Whether to add left and right Pan gestures, Default is YES.
  */
 @property (nonatomic, assign) BOOL isPanGesture;

@@ -8,9 +8,13 @@
 
 #import "KLSlideView.h"
 
+#define DT(x) [UIScreen mainScreen].bounds.size.width / 375.f * x
+
 @interface KLSlideView ()
 
 @property (nonatomic, strong) KLContainView *slideContainView;
+@property (nonatomic, strong) UIView *lineView;
+
 @end
 
 @implementation KLSlideView
@@ -43,9 +47,12 @@
     }
     
     self.tabbar.frame = CGRectMake(self.tabbar.frame.origin.x, self.tabbar.frame.origin.y, CGRectGetWidth(self.tabbar.bounds), self.tabbar.frame.size.height);
-    self.slideContainView.frame = CGRectMake(self.bounds.origin.x, self.tabbar.frame.size.height + self.tabbarBottomSpacing, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - self.tabbar.frame.size.height - self.tabbarBottomSpacing);
     self.tabbar.delegate = self;
     [self addSubview:self.tabbar];
+    
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.tabbar.frame) - DT(1), self.frame.size.width, DT(1))];
+    self.lineView.backgroundColor = self.lineColor;
+    [self addSubview:self.lineView];
     
     self.slideContainView = [[KLContainView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.tabbar.frame.size.height + self.tabbarBottomSpacing, self.bounds.size.width, self.bounds.size.height - self.tabbar.frame.size.height - self.tabbarBottomSpacing)];
     self.slideContainView.delegate = self;
@@ -62,12 +69,12 @@
 - (void)initView {
     self.isPanGesture = YES;
     self.tabbarBottomSpacing = 0;
+    self.lineColor = [UIColor clearColor];
 }
 
 - (void)setBaseViewController:(UIViewController *)baseViewController {
     _baseViewController = baseViewController;
     self.slideContainView.baseViewController = baseViewController;
-
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
