@@ -75,11 +75,6 @@ typedef NS_ENUM(NSInteger, KLTabbarViewImagePosition) {
 @property (nonatomic, assign) CGFloat trackBottomOffset;
 
 /**
- The tabbar bottom line color, height is 2px, Default is [UIColor clearColor]
- */
-@property (nonatomic, strong) UIColor *lineColor;
-
-/**
  The small slider back ground image, Default is nil
  */
 @property (nonatomic, strong) NSString *trackImage;

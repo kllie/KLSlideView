@@ -33,7 +33,6 @@
     tabbar.selectedColor = [UIColor redColor];
     tabbar.font = [UIFont systemFontOfSize:15];
     tabbar.trackColor = [UIColor redColor];
-    tabbar.lineColor = [UIColor redColor];
     tabbar.trackHeight = 3;
     tabbar.trackBottomOffset = 10;
     tabbar.position = KLTabbarViewImagePositionRight;
@@ -52,6 +51,7 @@
     self.slideView.cache = cache;
     self.slideView.delegate = self;
     self.slideView.tabbarBottomSpacing = 5;
+    self.slideView.lineColor = [UIColor redColor];
     self.slideView.baseViewController = self;
     self.slideView.isPanGesture = NO;
 //    [self.slideView setup];

@@ -42,6 +42,7 @@
         _slideView.baseViewController = self;
         _slideView.tabbarBottomSpacing = 5;
         _slideView.selectedIndex = 0;
+        _slideView.lineColor = [UIColor blueColor];
         _slideView.tabbar = self.tabbar;
     }
     return _slideView;
@@ -54,7 +55,6 @@
         _tabbar.selectedColor = [UIColor redColor];
         _tabbar.font = [UIFont systemFontOfSize:14];
         _tabbar.trackColor = [UIColor redColor];
-        _tabbar.lineColor = [UIColor blueColor];
         _tabbar.trackHeight = 5;
         _tabbar.trackBottomOffset = 10;
         _tabbar.tabbarItems = self.itemArray;
