@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "KLSlideView"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "KLSlideView 支持顶部Tab页点击、滑动，并支持无限分页。"
 
   s.homepage     = "https://github.com/kllie"
