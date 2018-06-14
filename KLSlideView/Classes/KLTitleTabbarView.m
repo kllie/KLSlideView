@@ -12,7 +12,6 @@
 
 #define DT(x) [UIScreen mainScreen].bounds.size.width / 375.f * x
 
-#define kTrackViewHeight 2
 #define kViewTagBase 1000
 #define kLabelTagBase 2000
 #define kBadgeValueLabelTagBase 3000
@@ -37,6 +36,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *trackView;
+@property (nonatomic, strong) UIView *lineView;
 
 @end
 
@@ -68,12 +68,17 @@
 
 - (void)initView {
     _selectedIndex = -1;
+    
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - DT(1), self.frame.size.width, DT(1))];
+    _lineView.backgroundColor = [UIColor clearColor];
+    [self addSubview:_lineView];
 
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
     [self addSubview:_scrollView];
 
-    _trackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - kTrackViewHeight - 1.0f, self.bounds.size.width, kTrackViewHeight)];
+    _trackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - DT(2), self.bounds.size.width, DT(2))];
     [_scrollView addSubview:_trackView];
     _trackView.layer.cornerRadius = 2.0f;
 }
@@ -109,6 +114,21 @@
 - (void)setTrackColor:(UIColor *)trackColor{
     _trackColor = trackColor;
     _trackView.backgroundColor = trackColor;
+}
+
+- (void)setTrackHeight:(CGFloat)trackHeight {
+    _trackHeight = trackHeight;
+    _trackView.frame = CGRectMake(_trackView.frame.origin.x, _trackView.frame.origin.y, _trackView.frame.size.width, trackHeight);
+}
+
+- (void)setTrackBottomOffset:(CGFloat)trackBottomOffset {
+    _trackBottomOffset = trackBottomOffset;
+    _trackView.frame = CGRectMake(_trackView.frame.origin.x, self.bounds.size.height - _trackHeight - trackBottomOffset, _trackView.frame.size.width, _trackView.frame.size.height);
+}
+
+- (void)setLineColor:(UIColor *)lineColor {
+    _lineColor = lineColor;
+    _lineView.backgroundColor = lineColor;
 }
 
 - (void)setTrackImage:(NSString *)trackImage {

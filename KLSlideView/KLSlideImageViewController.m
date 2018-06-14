@@ -33,6 +33,9 @@
     tabbar.selectedColor = [UIColor redColor];
     tabbar.font = [UIFont systemFontOfSize:15];
     tabbar.trackColor = [UIColor redColor];
+    tabbar.lineColor = [UIColor redColor];
+    tabbar.trackHeight = 3;
+    tabbar.trackBottomOffset = 10;
     tabbar.position = KLTabbarViewImagePositionRight;
 
     CGFloat width = self.view.frame.size.width / 5;

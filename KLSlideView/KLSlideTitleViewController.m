@@ -54,7 +54,11 @@
         _tabbar.selectedColor = [UIColor redColor];
         _tabbar.font = [UIFont systemFontOfSize:14];
         _tabbar.trackColor = [UIColor redColor];
+        _tabbar.lineColor = [UIColor blueColor];
+        _tabbar.trackHeight = 5;
+        _tabbar.trackBottomOffset = 10;
         _tabbar.tabbarItems = self.itemArray;
+        
     }
     return _tabbar;
 }
